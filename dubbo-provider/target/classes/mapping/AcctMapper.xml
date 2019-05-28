@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dubbo.api.dao.AcctMapper">
+  <resultMap id="BaseResultMap" type="com.dubbo.api.entity.Acct">
+    <!--@mbg.generated,2019-05-28 19:28:49-->
+    <result column="ACCT_ID" jdbcType="DECIMAL" property="acctId" />
+    <result column="NICKNAME" jdbcType="VARCHAR" property="nickname" />
+    <result column="ACCT_NAME" jdbcType="VARCHAR" property="acctName" />
+    <result column="PHONE" jdbcType="VARCHAR" property="phone" />
+    <result column="PASSWORD" jdbcType="VARCHAR" property="password" />
+    <result column="IMAGE" jdbcType="VARCHAR" property="image" />
+    <result column="REAL_NAME" jdbcType="VARCHAR" property="realName" />
+    <result column="EMERGENCY_PHONE" jdbcType="VARCHAR" property="emergencyPhone" />
+    <result column="ID_CARD" jdbcType="VARCHAR" property="idCard" />
+    <result column="REVIEW_STATUS" jdbcType="CHAR" property="reviewStatus" />
+    <result column="BLOOD_TYPE" jdbcType="CHAR" property="bloodType" />
+    <result column="CREATE_TIME" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="UPDATE_TIME" jdbcType="TIMESTAMP" property="updateTime" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <!--@mbg.generated,2019-05-28 19:28:49-->
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <!--@mbg.generated,2019-05-28 19:28:49-->
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated,2019-05-28 19:28:49-->
+    ACCT_ID, NICKNAME, ACCT_NAME, PHONE, PASSWORD, IMAGE, REAL_NAME, EMERGENCY_PHONE, 
+    ID_CARD, REVIEW_STATUS, BLOOD_TYPE, CREATE_TIME, UPDATE_TIME
+  </sql>
+  <select id="selectByExample" parameterType="com.dubbo.api.entity.AcctExample" resultMap="BaseResultMap">
+    <!--@mbg.generated,2019-05-28 19:28:49-->
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from dubbo_s_acct
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+  </select>
+  <delete id="deleteByExample" parameterType="com.dubbo.api.entity.AcctExample">
+    <!--@mbg.generated,2019-05-28 19:28:49-->
+    delete from dubbo_s_acct
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.dubbo.api.entity.Acct">
+    <!--@mbg.generated,2019-05-28 19:28:49-->
+    insert into dubbo_s_acct (ACCT_ID, NICKNAME, ACCT_NAME, 
+      PHONE, PASSWORD, IMAGE, 
+      REAL_NAME, EMERGENCY_PHONE, ID_CARD, 
+      REVIEW_STATUS, BLOOD_TYPE, CREATE_TIME, 
+      UPDATE_TIME)
+    values (#{acctId,jdbcType=DECIMAL}, #{nickname,jdbcType=VARCHAR}, #{acctName,jdbcType=VARCHAR}, 
+      #{phone,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, #{image,jdbcType=VARCHAR}, 
+      #{realName,jdbcType=VARCHAR}, #{emergencyPhone,jdbcType=VARCHAR}, #{idCard,jdbcType=VARCHAR}, 
+      #{reviewStatus,jdbcType=CHAR}, #{bloodType,jdbcType=CHAR}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{updateTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.dubbo.api.entity.Acct">
+    <!--@mbg.generated,2019-05-28 19:28:49-->
+    insert into dubbo_s_acct
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="acctId != null">
+        ACCT_ID,
+      </if>
+      <if test="nickname != null">
+        NICKNAME,
+      </if>
+      <if test="acctName != null">
+        ACCT_NAME,
+      </if>
+      <if test="phone != null">
+        PHONE,
+      </if>
+      <if test="password != null">
+        PASSWORD,
+      </if>
+      <if test="image != null">
+        IMAGE,
+      </if>
+      <if test="realName != null">
+        REAL_NAME,
+      </if>
+      <if test="emergencyPhone != null">
+        EMERGENCY_PHONE,
+      </if>
+      <if test="idCard != null">
+        ID_CARD,
+      </if>
+      <if test="reviewStatus != null">
+        REVIEW_STATUS,
+      </if>
+      <if test="bloodType != null">
+        BLOOD_TYPE,
+      </if>
+      <if test="createTime != null">
+        CREATE_TIME,
+      </if>
+      <if test="updateTime != null">
+        UPDATE_TIME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="acctId != null">
+        #{acctId,jdbcType=DECIMAL},
+      </if>
+      <if test="nickname != null">
+        #{nickname,jdbcType=VARCHAR},
+      </if>
+      <if test="acctName != null">
+        #{acctName,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null">
+        #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="image != null">
+        #{image,jdbcType=VARCHAR},
+      </if>
+      <if test="realName != null">
+        #{realName,jdbcType=VARCHAR},
+      </if>
+      <if test="emergencyPhone != null">
+        #{emergencyPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="idCard != null">
+        #{idCard,jdbcType=VARCHAR},
+      </if>
+      <if test="reviewStatus != null">
+        #{reviewStatus,jdbcType=CHAR},
+      </if>
+      <if test="bloodType != null">
+        #{bloodType,jdbcType=CHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.dubbo.api.entity.AcctExample" resultType="java.lang.Long">
+    <!--@mbg.generated,2019-05-28 19:28:49-->
+    select count(*) from dubbo_s_acct
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    <!--@mbg.generated,2019-05-28 19:28:49-->
+    update dubbo_s_acct
+    <set>
+      <if test="record.acctId != null">
+        ACCT_ID = #{record.acctId,jdbcType=DECIMAL},
+      </if>
+      <if test="record.nickname != null">
+        NICKNAME = #{record.nickname,jdbcType=VARCHAR},
+      </if>
+      <if test="record.acctName != null">
+        ACCT_NAME = #{record.acctName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.phone != null">
+        PHONE = #{record.phone,jdbcType=VARCHAR},
+      </if>
+      <if test="record.password != null">
+        PASSWORD = #{record.password,jdbcType=VARCHAR},
+      </if>
+      <if test="record.image != null">
+        IMAGE = #{record.image,jdbcType=VARCHAR},
+      </if>
+      <if test="record.realName != null">
+        REAL_NAME = #{record.realName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.emergencyPhone != null">
+        EMERGENCY_PHONE = #{record.emergencyPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="record.idCard != null">
+        ID_CARD = #{record.idCard,jdbcType=VARCHAR},
+      </if>
+      <if test="record.reviewStatus != null">
+        REVIEW_STATUS = #{record.reviewStatus,jdbcType=CHAR},
+      </if>
+      <if test="record.bloodType != null">
+        BLOOD_TYPE = #{record.bloodType,jdbcType=CHAR},
+      </if>
+      <if test="record.createTime != null">
+        CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.updateTime != null">
+        UPDATE_TIME = #{record.updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    <!--@mbg.generated,2019-05-28 19:28:49-->
+    update dubbo_s_acct
+    set ACCT_ID = #{record.acctId,jdbcType=DECIMAL},
+      NICKNAME = #{record.nickname,jdbcType=VARCHAR},
+      ACCT_NAME = #{record.acctName,jdbcType=VARCHAR},
+      PHONE = #{record.phone,jdbcType=VARCHAR},
+      PASSWORD = #{record.password,jdbcType=VARCHAR},
+      IMAGE = #{record.image,jdbcType=VARCHAR},
+      REAL_NAME = #{record.realName,jdbcType=VARCHAR},
+      EMERGENCY_PHONE = #{record.emergencyPhone,jdbcType=VARCHAR},
+      ID_CARD = #{record.idCard,jdbcType=VARCHAR},
+      REVIEW_STATUS = #{record.reviewStatus,jdbcType=CHAR},
+      BLOOD_TYPE = #{record.bloodType,jdbcType=CHAR},
+      CREATE_TIME = #{record.createTime,jdbcType=TIMESTAMP},
+      UPDATE_TIME = #{record.updateTime,jdbcType=TIMESTAMP}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+</mapper>
