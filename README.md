@@ -24,9 +24,9 @@
 
 * 支付宝扫码支付流程
 
-![](image/3.jpg)
-![](image/4.jpg)
+![](image/3.png)
+![](image/4.png)
 
 * 微信扫码支付流程
 
-![](image/5.jpg)
+![](image/5.png)
