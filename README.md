@@ -18,3 +18,6 @@
 > * dubbo-web:可调用dubo-provider接口服务
 
 * 引进kafka、增加Nginx、Zookepper部署方案
+
+![](image/1.jpg)
+![](image/2.jpg)
