@@ -1,10 +1,11 @@
 package com.dubbo.api.exception.core;
 
 /**
- * 业务异常
+ * 
+ * @Description： 业务异常
+ * @author [ Wenfeng.Huang ] on [2019年6月3日下午7:50:44]
+ * @Modified By： [修改人] on [修改日期] for [修改说明]
  *
- * @Author： [Guobiao.Li@desay-svautomotive.com] on [2017/11/14]
- * Modified By： [修改人] on [修改日期] for [修改说明]
  */
 public class BusiException extends BaseException {
     private static final long serialVersionUID = -6716891036272026286L;
