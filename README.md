@@ -21,3 +21,12 @@
 
 ![](image/1.jpg)
 ![](image/2.jpg)
+
+* 支付宝扫码支付流程
+
+![](image/3.jpg)
+![](image/4.jpg)
+
+* 微信扫码支付流程
+
+![](image/5.jpg)
