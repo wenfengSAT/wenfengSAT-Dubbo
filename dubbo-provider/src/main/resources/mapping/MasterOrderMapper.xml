@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dubbo.api.dao.MasterOrderMapper">
+  <resultMap id="BaseResultMap" type="com.dubbo.api.entity.MasterOrder">
+    <!--@mbg.generated,2019-05-28 18:40:05-->
+    <result column="ORDER_ID" jdbcType="VARCHAR" property="orderId" />
+    <result column="ORDER_TYPE" jdbcType="VARCHAR" property="orderType" />
+    <result column="BUYER_ID" jdbcType="VARCHAR" property="buyerId" />
+    <result column="ORDER_SOURCE" jdbcType="VARCHAR" property="orderSource" />
+    <result column="ORDER_AMOUNT" jdbcType="DECIMAL" property="orderAmount" />
+    <result column="STATUS" jdbcType="CHAR" property="status" />
+    <result column="PAY_STATUS" jdbcType="CHAR" property="payStatus" />
+    <result column="PAY_CHENNEL" jdbcType="VARCHAR" property="payChennel" />
+    <result column="RECDATE" jdbcType="TIMESTAMP" property="recdate" />
+    <result column="END_DATE" jdbcType="TIMESTAMP" property="endDate" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <!--@mbg.generated,2019-05-28 18:40:05-->
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <!--@mbg.generated,2019-05-28 18:40:05-->
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated,2019-05-28 18:40:05-->
+    ORDER_ID, ORDER_TYPE, BUYER_ID, ORDER_SOURCE, ORDER_AMOUNT, STATUS, PAY_STATUS, PAY_CHENNEL, 
+    RECDATE, END_DATE
+  </sql>
+  <select id="selectByExample" parameterType="com.dubbo.api.entity.MasterOrderExample" resultMap="BaseResultMap">
+    <!--@mbg.generated,2019-05-28 18:40:05-->
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from app_master_order
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+    <if test="limit != null">
+      <if test="offset != null">
+        limit ${offset}, ${limit}
+      </if>
+      <if test="offset == null">
+        limit ${limit}
+      </if>
+    </if>
+  </select>
+  <delete id="deleteByExample" parameterType="com.dubbo.api.entity.MasterOrderExample">
+    <!--@mbg.generated,2019-05-28 18:40:05-->
+    delete from app_master_order
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.dubbo.api.entity.MasterOrder">
+    <!--@mbg.generated,2019-05-28 18:40:05-->
+    insert into app_master_order (ORDER_ID, ORDER_TYPE, BUYER_ID, 
+      ORDER_SOURCE, ORDER_AMOUNT, STATUS, 
+      PAY_STATUS, PAY_CHENNEL, RECDATE, 
+      END_DATE)
+    values (#{orderId,jdbcType=VARCHAR}, #{orderType,jdbcType=VARCHAR}, #{buyerId,jdbcType=VARCHAR}, 
+      #{orderSource,jdbcType=VARCHAR}, #{orderAmount,jdbcType=DECIMAL}, #{status,jdbcType=CHAR}, 
+      #{payStatus,jdbcType=CHAR}, #{payChennel,jdbcType=VARCHAR}, #{recdate,jdbcType=TIMESTAMP}, 
+      #{endDate,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.dubbo.api.entity.MasterOrder">
+    <!--@mbg.generated,2019-05-28 18:40:05-->
+    insert into app_master_order
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="orderId != null">
+        ORDER_ID,
+      </if>
+      <if test="orderType != null">
+        ORDER_TYPE,
+      </if>
+      <if test="buyerId != null">
+        BUYER_ID,
+      </if>
+      <if test="orderSource != null">
+        ORDER_SOURCE,
+      </if>
+      <if test="orderAmount != null">
+        ORDER_AMOUNT,
+      </if>
+      <if test="status != null">
+        STATUS,
+      </if>
+      <if test="payStatus != null">
+        PAY_STATUS,
+      </if>
+      <if test="payChennel != null">
+        PAY_CHENNEL,
+      </if>
+      <if test="recdate != null">
+        RECDATE,
+      </if>
+      <if test="endDate != null">
+        END_DATE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="orderId != null">
+        #{orderId,jdbcType=VARCHAR},
+      </if>
+      <if test="orderType != null">
+        #{orderType,jdbcType=VARCHAR},
+      </if>
+      <if test="buyerId != null">
+        #{buyerId,jdbcType=VARCHAR},
+      </if>
+      <if test="orderSource != null">
+        #{orderSource,jdbcType=VARCHAR},
+      </if>
+      <if test="orderAmount != null">
+        #{orderAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=CHAR},
+      </if>
+      <if test="payStatus != null">
+        #{payStatus,jdbcType=CHAR},
+      </if>
+      <if test="payChennel != null">
+        #{payChennel,jdbcType=VARCHAR},
+      </if>
+      <if test="recdate != null">
+        #{recdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="endDate != null">
+        #{endDate,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.dubbo.api.entity.MasterOrderExample" resultType="java.lang.Long">
+    <!--@mbg.generated,2019-05-28 18:40:05-->
+    select count(*) from app_master_order
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    <!--@mbg.generated,2019-05-28 18:40:05-->
+    update app_master_order
+    <set>
+      <if test="record.orderId != null">
+        ORDER_ID = #{record.orderId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.orderType != null">
+        ORDER_TYPE = #{record.orderType,jdbcType=VARCHAR},
+      </if>
+      <if test="record.buyerId != null">
+        BUYER_ID = #{record.buyerId,jdbcType=VARCHAR},
+      </if>
+      <if test="record.orderSource != null">
+        ORDER_SOURCE = #{record.orderSource,jdbcType=VARCHAR},
+      </if>
+      <if test="record.orderAmount != null">
+        ORDER_AMOUNT = #{record.orderAmount,jdbcType=DECIMAL},
+      </if>
+      <if test="record.status != null">
+        STATUS = #{record.status,jdbcType=CHAR},
+      </if>
+      <if test="record.payStatus != null">
+        PAY_STATUS = #{record.payStatus,jdbcType=CHAR},
+      </if>
+      <if test="record.payChennel != null">
+        PAY_CHENNEL = #{record.payChennel,jdbcType=VARCHAR},
+      </if>
+      <if test="record.recdate != null">
+        RECDATE = #{record.recdate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.endDate != null">
+        END_DATE = #{record.endDate,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    <!--@mbg.generated,2019-05-28 18:40:05-->
+    update app_master_order
+    set ORDER_ID = #{record.orderId,jdbcType=VARCHAR},
+      ORDER_TYPE = #{record.orderType,jdbcType=VARCHAR},
+      BUYER_ID = #{record.buyerId,jdbcType=VARCHAR},
+      ORDER_SOURCE = #{record.orderSource,jdbcType=VARCHAR},
+      ORDER_AMOUNT = #{record.orderAmount,jdbcType=DECIMAL},
+      STATUS = #{record.status,jdbcType=CHAR},
+      PAY_STATUS = #{record.payStatus,jdbcType=CHAR},
+      PAY_CHENNEL = #{record.payChennel,jdbcType=VARCHAR},
+      RECDATE = #{record.recdate,jdbcType=TIMESTAMP},
+      END_DATE = #{record.endDate,jdbcType=TIMESTAMP}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  
+  <update id="updatePayChennel" parameterType="map">
+    update app_master_order
+    set PAY_CHENNEL = #{PAY_CHENNEL}
+    where ORDER_ID = #{ORDER_ID}
+  </update>
+  <update id="updateOrderStatus" parameterType="map">
+    update app_master_order
+    set PAY_STATUS = #{PAY_STATUS}
+    where ORDER_ID = #{ORDER_ID}
+  </update>
+  
+  <select id="selectOrder" parameterType="map" resultType="map">
+  	select * from app_master_order where 1 = 1
+	<if test="ORDER_ID != null">
+		and ORDER_ID = ${ORDER_ID}
+	</if>
+  </select>
+</mapper>

@@ -1,9 +1,11 @@
 package com.dubbo.api.exception.core;
 
 /**
+ * 
  * @Description： 应用异常
- * @Author： [Guobiao.Li@desay-svautomotive.com] on [2017/8/29]
- * Modified By： [修改人] on [修改日期] for [修改说明]
+ * @author [ Wenfeng.Huang ] on [2019年6月3日下午7:50:15]
+ * @Modified By： [修改人] on [修改日期] for [修改说明]
+ *
  */
 public class AppException extends BaseException {
     /**

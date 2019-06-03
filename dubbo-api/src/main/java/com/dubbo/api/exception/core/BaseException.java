@@ -6,9 +6,11 @@ import java.util.Map;
 import org.apache.commons.lang3.StringUtils;
 
 /**
+ * 
  * @Description： 异常收集抽象父类
- * @Author： [Guobiao.Li@desay-svautomotive.com] on [2017/8/29]
- * Modified By： [修改人] on [修改日期] for [修改说明]
+ * @author [ Wenfeng.Huang ] on [2019年6月3日下午7:50:31]
+ * @Modified By： [修改人] on [修改日期] for [修改说明]
+ *
  */
 public abstract class BaseException extends Exception {
 
