@@ -16,5 +16,10 @@ public class Const {
 	public static final String SYMBOL_UNDERLINE = "_";
 	public static final String SYMBOL_COMMA = ",";
 	public static final String SYMBOL_COLON = ":";
+	
+	public static final String SUCCESS = "SUCCESS";
+	public static final String FAIL = "FAIL";
+	public static final String OK = "OK";
+	
 
 }

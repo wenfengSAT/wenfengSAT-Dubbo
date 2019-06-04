@@ -18,13 +18,13 @@ import com.dubbo.api.constant.ErrorCode;
 import com.dubbo.api.constant.PayChannel;
 import com.dubbo.api.constant.Result;
 import com.dubbo.api.dao.MasterOrderMapper;
-import com.dubbo.api.service.util.wxpay.BeanUtil;
-import com.dubbo.api.service.util.wxpay.IPUtil;
-import com.dubbo.api.service.util.wxpay.SignUtil;
 import com.dubbo.api.service.util.wxpay.UnifiedOrder;
 import com.dubbo.api.service.util.wxpay.UnifiedOrderReturn;
 import com.dubbo.api.service.util.wxpay.WeixinPayUtil;
-import com.dubbo.api.service.util.wxpay.XmlUtil;
+import com.dubbo.api.utils.BeanUtil;
+import com.dubbo.api.utils.IPUtil;
+import com.dubbo.api.utils.SignUtil;
+import com.dubbo.api.utils.XmlUtil;
 
 /**
  * 
