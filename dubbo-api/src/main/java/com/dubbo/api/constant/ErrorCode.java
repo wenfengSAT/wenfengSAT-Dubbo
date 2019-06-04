@@ -32,6 +32,10 @@ public enum ErrorCode {
 	
 	WEIXIN_SIGN_CHECK_FAIL("10400", "微信支付返回结果签名校验不通过"),
 	WEIXIN_REQUEST_QRCODE_FAIL("10401", "请求微信支付二维码失败"),
+	WEIXIN_SIGN_VERIFIED_FAIL("10402", "微信验签异常"),
+	WEIXIN_RETURN_CODE_FAIL("10403", "微信回调返回码不为SUCCESS"),
+	WEIXIN_RETURN_PARAM_ERROR("10404", "回调参数错误"),
+	WEIXIN_ORDER_IS_EXECUTED("10405", "订单号已执行"),
 	
 	
 	;

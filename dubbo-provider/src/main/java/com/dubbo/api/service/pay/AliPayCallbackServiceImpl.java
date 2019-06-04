@@ -62,9 +62,10 @@ public class AliPayCallbackServiceImpl implements AliPayCallbackService {
 	private RedisTemplate<String, String> redisTemplate;
 
 	/**
-	 * * 
+	 * * 支付宝支付回调
+	 * 
      * 第一步:验证签名,签名通过后进行第二步
-     * 第二步:按一下步骤进行验证
+     * 第二步:按步骤进行验证
      * 1、商户需要验证该通知数据中的out_trade_no是否为商户系统中创建的订单号，
      * 2、判断total_amount是否确实为该订单的实际金额（即商户订单创建时的金额），
      * 3、校验通知中的seller_id（或者seller_email) 是否为out_trade_no这笔单据的对应的操作方（有的时候，一个商户可能有多个seller_id/seller_email），
@@ -72,7 +73,6 @@ public class AliPayCallbackServiceImpl implements AliPayCallbackService {
      * 在上述验证通过后商户必须根据支付宝不同类型的业务通知，正确的进行不同的业务处理，并且过滤重复的通知结果数据。
      * 在支付宝的业务通知中，只有交易通知状态为TRADE_SUCCESS或TRADE_FINISHED时，支付宝才会认定为买家付款成功。
      * 
-     *
 	 */
 	@Override
 	public Result alipayNotify(Map<String, String> params) {
@@ -134,6 +134,7 @@ public class AliPayCallbackServiceImpl implements AliPayCallbackService {
 		param.put("PAY_STATUS", OrderStatus.PAID.getValue());
 		boolean updateResult = updateOrderStatus(param);
 		if (!updateResult) {
+			LOGGER.error("更新订单状态失败。orderId:{}", outTradeNo);
 			return Result.error(ErrorCode.UPDATE_PAY_STATUS_FAIL);
 		}
 		// TODO 支付成功之后业务处理...
