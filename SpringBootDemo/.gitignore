@@ -1,0 +1,43 @@
+# maven ignore
+target/
+*.jar
+!.mvn/wrapper/*
+*.war
+*.zip
+*.tar
+*.tar.gz
+
+# eclipse ignore
+.settings/
+.project
+.classpath
+
+# idea ignore
+.idea/
+*.ipr
+*.iml
+*.iws
+
+# temp ignore
+*.log
+*.cache
+*.diff
+*.patch
+*.tmp
+
+# system ignore
+.DS_Store
+Thumbs.db
+boot-domain/src/main/resources/
+boot-domain/src/test/
+boot-web/src/main/java/com/cheng/bootweb/Config/
+boot-web/src/main/resources/static/
+boot-web/src/main/resources/template/
+boot-web/src/main/webapp/WEB-INF/
+dubbo-consumer/src/test/
+dubbo-provider/src/test/
+dubbo-spring-boot-sample-api/src/main/resources/
+dubbo-spring-boot-sample-api/src/test/
+dubbo-spring-boot-sample-consumer/src/test/
+dubbo-spring-boot-sample-provider/src/test/
+
